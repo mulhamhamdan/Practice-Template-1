@@ -1,0 +1,668 @@
+/*
+1-Common styles
+2-General styles
+3-Sections
+  3.0-Header Section
+  3.1-Home Section
+  3.2-About Section
+  3.3-Protofolio Section
+  3.4-Service Section
+  3.5-Prices Section
+  3.6-Team Section
+  3.7-Blog Page
+  3.8-Content Section
+  3.9-Footer Section
+*/
+
+/*1- Common Styles*/
+
+/*
+ - container
+ - overlay
+ - opacity hover
+ - section header
+ - section padding
+ - hover effect1(from left to right)
+ - hover effect2(from top to bottom)
+*/
+.Overlay{/* رح يتكرر لهيك ما حددناه مع الهوم*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+.Hover-opacity{
+    transition: opacity .5s;
+}
+.Hover-opacity:hover{
+   opacity: 0.8; 
+}
+/*2- General Styles */
+*{
+     margin: 0;
+     padding:0;
+     box-sizing: border-box;/*css3 تجعل البادين والمارجين غير قادرين على زيادة ابعاد العنصر*/
+
+}
+body{
+    font-family: 'Varela Round', sans-serif;
+}
+.clear{
+    clear: both;
+}
+.container{
+    width:80%;
+    margin:auto;
+}
+h1 , h2 , h3 , h4 , h5 , h6 {
+    font-family:  sans-serif;
+}
+button{
+    font-family:inherit;
+}
+a{
+    text-decoration: none;
+}
+.pd-y{
+    padding: 120px 0;
+}
+.section-header{
+    text-align: center;
+}
+.section-header .section-title{
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 10px ;
+}
+.section-header .line{
+    display: block;
+    height: 5px;
+    width: 60px;
+    background-color: #6195ff;
+    margin:0 auto 70px auto;
+
+}
+.ltr-effect, .tb-effect{
+    position: relative;
+}
+.ltr-effect:after , .tb-effect:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#333;
+    z-index: -1;
+}
+.ltr-effect:hover:after{
+    width:100%;
+}
+.ltr-effect:after{
+    width: 0;
+    transition: width 0.5s;
+}
+.tb-effect:after{
+    height: 0;
+    transition: height 0.5s;
+}
+.tb-effect:hover:after{
+    height:100%;
+}
+
+/*3- Sections Styles */
+
+/*3.0- Header Section Styles */
+.Header{
+    position: fixed;/*البوزيشن فيكسد+البوزيشن ابسوليوت تحول العنصر من بلوك إلى انلين بلوك */
+    width:100%;/*لذلك جعنا العرض مية بالمية */
+    z-index: 10;/*كي يظهر الهيدر من تحت الهوم يف لانه اخذ فيكسد رح ينزل لتحت*/
+
+}
+.Header .Logo{
+    width:40%;
+    float: left;
+}
+.Header .Logo img{
+    width:20%;
+    margin-top: 15px;
+
+}
+.Header .nav{
+    width:60%;
+    float:left;
+    list-style: none;
+    text-align: right;
+    
+    
+}
+
+.Header .nav > li{
+    display: inline-block; 
+    
+}
+/*.header-content{
+    overflow: hidden;/* لحل مشكلة الفلوت ليفت 
+}*/
+.Header .nav > li > a {
+    color:#fff;
+    font-size:14px;
+    display: block;/* هنا كل انكور داخل ليست ايتم */
+    padding: 30px 10px;
+}
+.Header .nav > li > a:after{
+    content:"";
+    display: block;
+    width: 0;
+    height: 3px;
+    background-color: #6195ff;
+    transition: 0.3s;
+    margin-top: 2px;
+}
+.Header .nav > li > a:hover:after , .Header .nav li a.Active:after{
+    width:100%;
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-menu{
+    position: absolute;
+    background-color: #6195ff;
+    width: 150px;
+    text-align: center;
+    left: -50;
+    top: 70%;
+    opacity: 0;/*منشان اعمل ترانزيشن عالاوباسيتي */
+    visibility: hidden;/*منشان اخفي العنصر مع الحفاظ على مكانه بالصفحة */
+    transition: opacity 0.5s , visibility 0.5s;
+}
+.dropdown-menu > li > a{
+    display: block;
+    color: #fff;
+    padding: 10px;
+}
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+
+}
+
+/*3.1- Home Section Styles*/
+.Home{
+    height: 100vh;
+    background-image: url(../images/background/background1.webp);
+    background-size: cover;
+    position: relative;
+    
+}
+.Home-Content{
+    position: absolute;
+    width:65%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.Home .Title{
+    color: white;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+.Home .Home-Desc{
+   margin:20px 0px;
+   color:white;
+   letter-spacing: 2px;
+   line-height: 1.5;
+   
+}
+.Home .btn{
+    width: 160px;
+    padding: 15px 0;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+.Home .btn-start{
+    margin-right: 10px;
+    background-color: white;
+
+}
+.Home .btn-learn{
+    background-color:#6195ff ;
+    color:white;
+}
+
+/* about section */
+
+.about{
+
+}
+
+.about-content{
+    overflow: hidden;
+}
+
+.about-item{
+    width: 30%;
+    float: left;
+    text-align: center;
+    border: 1px solid rgb(197, 193, 193);
+    padding: 50px 20px;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);/*إضافة من عندي */
+}
+.about-item.margin{/*إذا شفنا كلاسين لازقين ببعض معناها العنصر أخذ هذول الكلاسين سوا */
+     margin: 0 5%;
+}
+.about-item .icon{
+    color: #6195ff;
+    margin-bottom: 10px;
+
+}
+.about-item-title{
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    transition: color 0.5s;
+}
+.about-item:hover .about-item-title{
+    color:white;
+}
+.about-item-desc{
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #999;
+}
+.about-item .link{
+    color: #6195ff;
+    text-transform: capitalize;
+}
+/*Protofolio Section*/
+.protofolio{
+    background-color:#f9f9f9 ;
+}
+.protofolio-content{
+    overflow: hidden;
+}
+.protofolio-item{
+    width:32%;
+    float: left;
+    margin-bottom: 25px;
+    position: relative;
+    padding: 20px;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);/*إضافة من عندي */
+}
+.protofolio-item img{
+    width:100%;
+}
+.protofolio-item.margin{
+    margin: 0 2%;
+}
+.protofolio-item .layer-content{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s , visibility 0.5s;
+}
+.layer-content .layer-info{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:80%;
+    text-align: center;
+}
+.layer-content .category{
+    color:#6195ff;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0;
+    position: relative;/*إزاحة من المكان الموجود فيه أصلا لذلك كتبنا ريلاتيف */
+    top:30px;
+    visibility: hidden;
+    transition: top 0.5s,opacity 0.2s;
+    transition-delay: 0.1s;
+}
+.layer-content-title{
+    font-size: 20px;
+    color:white;
+    margin-bottom: 20px;
+    opacity: 0;
+    position: relative;/*إزاحة من المكان الموجود فيه أصلا لذلك كتبنا ريلاتيف */
+    top:30px;
+    visibility: hidden;
+    transition: top 0.5s,opacity 0.2s;
+    transition-delay: 0.2s;
+}
+
+.layer-content a i{
+    display: inline-block;
+    width:40px;
+    height: 40px;
+    background-color: #6195ff;
+    line-height: 40px;
+    color:white;
+    opacity: 0;
+    position: relative;/*إزاحة من المكان الموجود فيه أصلا لذلك كتبنا ريلاتيف */
+    top:30px;
+    visibility: hidden;
+    transition: top 0.5s,opacity 0.2s; 
+    transition-delay: 0.3s;
+}
+.protofolio-item:hover .layer-content a i,.protofolio-item:hover .layer-content-title,.protofolio-item:hover .layer-content .category{
+    top:0;
+    opacity: 1;
+    visibility: visible;
+}
+.protofolio-item:hover .layer-content{
+    opacity: 1;
+    visibility: visible; 
+}
+/* offer section*/
+.offer-content{
+    overflow: hidden;
+}
+.offer-item{
+    position: relative;
+    width:30%;
+    float:left;
+    margin-bottom: 20px;
+    border:1px solid #e8e8e8;
+    padding:20px 15px 30px 70px;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);/*إضافة من عندي */
+}
+.offer-item .icon{
+    position:absolute;
+    left:20px;
+    top:25px;
+    color:#6195ff;
+}
+.offer-item.margin{
+    margin:0 5%;
+}
+.offer-item-title{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    transition: color 0.5s;
+
+}
+.offer-item:hover .offer-item-title{
+    color:white;
+}
+/*service section*/
+.services{
+    background-color:#f9f9f9 ;
+}
+.service-item{
+    width:50%;
+    float: left;
+}
+.service-item .section-header{
+    text-align: left;
+}
+.service-item .section-header .line{
+    margin: 0 0 40px 0;
+}
+.service-item-desc{
+    padding-right: 20px;
+    color:#999;
+    line-height: 1.4;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+.service-list{
+    list-style-type:none;
+}
+.service-list li{
+    margin-bottom: 10px;
+    color:#999;
+}
+.service-list li i{
+    border:1px solid #6195ff;
+    color:#6195ff;
+    padding:4px 4px;
+    border-radius: 50%;
+    margin: 3px;
+}
+
+.service-item-img img{
+    width:100%; 
+}
+
+.service-bollets {
+   list-style: none;
+   text-align: center;
+
+}
+.service-bollets li{
+    height: 10px;
+    width:10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    margin:10px 10px ;
+    border-radius: 50%;
+}
+.service-bollets li.active{
+    background-color: #6195ff;
+    height: 10px;
+    width:15px;
+    border-radius: 40%;
+
+}
+.service-bollets li:hover{
+    background-color: #6195ff;
+}
+
+/* number section */
+.numbers-section{
+    position: relative;/*لازم ياخذ ريلاتيف لان الابن ابسوليوت وإلارح يكون متموضع حسب البودي */
+    background-image: url("../images/background/background2.webp");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 300px;        /* لازم ياخذ ارتفاع لان, ريلاتف  منعدم الابعاد الطول لما يكون بقلبو ديف ابسوليوت*/
+}
+.numbers-items{
+    overflow: hidden;
+    padding: 100px;
+}
+.number-item{
+    float: left;
+    width:25%;
+    text-align: center;
+}
+.number-item .icon{
+    color: #6195ff;
+    margin-bottom: 15px;
+}
+.number-item h3{
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+    margin-bottom: 15px;
+
+}
+.number-item span{
+    color: white;
+
+}
+/*pricing section*/
+.pricing{
+
+}
+.pricing-plams{
+    overflow: hidden;
+}
+.pricing-item{
+    width:30%;
+    float: left;
+    padding: 40px 15px;
+    border:1px solid #e8e8e8;
+    text-align: center;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);/*إضافة من عندي */
+}
+.pricing-item.mg{
+    margin: 0 5%;
+}
+.pricing-item-text{
+    text-transform: uppercase;
+    font-size: 17px;
+    color:#999;
+    transition: color 0.5s;
+}
+.pricing-item-permonth{
+    width: 130px;
+    height: 130px;
+    padding: 25px 0;
+    margin:15px auto;
+    border:2px solid #6195ff;
+    border-radius: 50%;
+    transition: color 0.5s;
+}
+.pricing-item-permonth .doller{
+    font-size: 50px;
+}
+.pricing-item-permonth .month{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+.pricing-list{
+    list-style: none;
+}
+.pricing-list li{
+    color:#999;
+    line-height: 1.8;
+}
+.pricing-item-purchase{
+    background: none;
+    border: 0;
+    display: block;
+    width: 140px;
+    padding: 10px;
+    border:2px solid#6195ff;
+    margin: 20 auto 0 auto;
+    color:#6195ff;
+    cursor: pointer;
+}
+.pricing-item:hover .pricing-item-permonth{
+    color:white;
+}
+.pricing-item:hover .pricing-item-text{
+    color:#6195ff;
+}
+/* testimonial section */
+.testimonial{
+    position: relative;
+    background-image: url("../images/background/background3.webp");
+    background-attachment: fixed;
+    height: 400px;
+}
+.testimonial-content{
+    overflow: hidden;
+    padding: 120px 0;
+    width: 80%;
+    margin: auto;
+}
+.testimonial-item{
+    width: 50%;
+    float: left;
+    color: white;
+}
+.testimonial-item .testimonial-toplayer{
+  padding: 10px 2px 40px 100px ;
+  position: relative;
+}
+.testimonial-item .testimonial-toplayer img{
+    position: absolute;
+    border-radius: 50%;
+    left: 10px;
+    top: 0px;
+}
+.testimonial-item .testimonial-toplayer span{
+  color:#6195ff;
+}
+.testimonial-item .testimonial-toplayer h3{
+    margin: 5px 0;
+}
+.testimonial-item p{
+    font-size: 17px;
+}
+.team{
+
+}
+
+.team-content{
+    overflow: hidden;
+}
+.team-item{
+  width: 30%;
+  background: #e8e8e8;
+  padding: 40px 10px;
+  text-align: center;
+  float: left;
+}
+.team-item .team-img{
+    width: 90%;
+    margin:auto;
+    position: relative;
+}
+.team-item .team-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+}
+.team-item .team-overlay a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #7ba7ff;
+    color: #fff;
+    margin-left: auto;
+}
+.team-item .team-overlay a i{
+    line-height: 40px;
+}
+.team-item .team-img img{
+    width: 100%;
+}
+.team-item:hover .team-overlay {
+    visibility: visible;
+    opacity: 1;
+}
+.team-item:hover .team-info-title{
+    color: white;
+}
+.team-item:hover .team-info-text{
+    color: #6195ff;
+}
+.team-item.tb-effect{
+    z-index: 1;
+}
+.team-info-title{
+    color: #222;
+    text-transform: capitalize;
+    margin: 10px 0;
+    transition: color 0.5s;
+}
+.team-info-text{
+    color: #999;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: color 0.5s;
+}
+.team-item.tb-effect.mg{
+    margin: 0 5%;
+}
