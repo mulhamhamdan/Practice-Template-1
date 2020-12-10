@@ -791,5 +791,36 @@ textarea {
     cursor: pointer;
     margin-top: 20px;
   }
+/* footer section */
+.footer{
+    background-color: #222;
+    text-align: center;
+    padding: 50px 0;
+}
+.footer .link-list {
+    list-style: none;
+    margin: 20px 0;
+}
 
+.footer .link-list li {
+    display: inline-block;
+}
 
+.footer .link-list li a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #6195ff;
+    color: white;
+    margin: 0 5px;
+    border-radius: 50%;
+}
+.footer .link-list li a i {
+    line-height: 50px;
+}
+.footer .copyright {
+    color: #999;
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
